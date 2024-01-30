@@ -1,0 +1,56 @@
+public class Account {
+
+    // Data member to store the account balance
+    private double balance;
+
+    // Constructor with no arguments (initializes balance to 0)
+    public Account() {
+        balance = 0;
+    }
+
+    // Constructor with two arguments (initializes balance with given value)
+    public Account(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    // Method to deposit amount to the account
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Amount deposited successfully.");
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    // Method to withdraw amount from the account
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Amount withdrawn successfully.");
+        } else {
+            System.out.println("Insufficient balance or invalid withdrawal amount.");
+        }
+    }
+
+    // Method to display the account balance
+    public void displayBalance() {
+        System.out.println("Account balance: " + balance);
+    }
+
+    public static void main(String[] args) {
+        // Create two account objects with different initial balances
+        Account account1 = new Account(5000);
+        Account account2 = new Account(); // Initial balance will be 0
+
+        // Perform transactions on the accounts
+        account1.deposit(2000);
+        account2.deposit(1000);
+        account2.withdraw(500);
+
+        // Display the final balances
+        account1.displayBalance();
+        account2.displayBalance();
+    }
+}
+
