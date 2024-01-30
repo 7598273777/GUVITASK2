@@ -1,0 +1,71 @@
+public class Person {
+
+  private String name;
+  private int age;
+
+  public Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public int getAge() {
+    return age;
+  }
+
+  @Override
+  public String toString() {
+    return "Person{" +
+        "name='" + name + '\'' +
+        ", age=" + age +
+        '}';
+  }
+}
+
+public class Employee extends Person {
+
+  private String employeeId;
+  private double salary;
+
+  public Employee(String name, int age, String employeeId, double salary) {
+    super(name, age); // Use super keyword to initialize Person attributes
+    this.employeeId = employeeId;
+    this.salary = salary;
+  }
+
+  public String getEmployeeId() {
+    return employeeId;
+  }
+
+  public double getSalary() {
+    return salary;
+  }
+
+  @Override
+  public String toString() {
+    return "Employee{" +
+        "name='" + getName() + '\'' +
+        ", age=" + getAge() +
+        ", employeeId='" + employeeId + '\'' +
+        ", salary=" + salary +
+        '}';
+  }
+}
+
+public class Main {
+
+  public static void main(String[] args) {
+    Employee employee1 = new Employee("John Doe", 30, "12345", 50000.0);
+
+    System.out.println(employee1); // Prints employee details
+
+    // Access individual attributes
+    System.out.println("Name: " + employee1.getName());
+    System.out.println("Age: " + employee1.getAge());
+    System.out.println("Employee ID: " + employee1.getEmployeeId());
+    System.out.println("Salary: " + employee1.getSalary());
+  }
+}
